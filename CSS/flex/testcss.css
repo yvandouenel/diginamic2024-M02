@@ -1,0 +1,21 @@
+* {
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+body > section > div {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: row-reverse; */
+  article {
+    flex-basis: 30%;
+  }
+  article#article3 {
+    order: -1;
+  }
+}
+/* Pseudo element before */
+h1:before {
+  content: "\e800";
+  display: block;
+}
