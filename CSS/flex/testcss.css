@@ -1,7 +1,3 @@
-* {
-  border: 1px solid black;
-  box-sizing: border-box;
-}
 body > section > div {
   border: 1px solid red;
   display: flex;
@@ -16,6 +12,19 @@ body > section > div {
 }
 /* Pseudo element before */
 h1:before {
-  content: "\e800";
-  display: block;
+  color: blueviolet;
+  font-size: 3rem;
+}
+a {
+  text-decoration: none;
+}
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  z-index: -1000;
+  -webkit-user-select: none;
 }
