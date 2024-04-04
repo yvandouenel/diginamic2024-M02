@@ -90,10 +90,21 @@ function success(result) {
 function fail(result) {
   console.log(`Désolé, vous avez perdu ! ton petit score: ${result}`);
 }
-function game(resolved, reject) {// on dit que s et f sont des callbacks
-  const result = Math.random();
-  if (result > 0.5) {
-    resolved(result);
-  } else reject(result)
+/**
+ * En fonction du result, appel des fonctions de callback resolved ou reject
+ * Higher Order function ou fonction de haut niveau car elle attend en paramètre des fonctions
+ * 
+ * @param {function} resolved 
+ * @param {function} reject 
+ * @returns void 
+ */
+function game(resolved, rejected) {// on dit que resolved et rejected sont des callbacks
+  setTimeout(() => {
+    const result = Math.random();
+    if (result > 0.5) {
+      resolved(result);
+    } else rejected(result)
+  }, 2000)
 }
 game(success, fail);// ici les arguments sont de type function
+console.log(`Après l'appel de game`);
