@@ -79,17 +79,21 @@ const digiObject = (function () {
 
 const result = digiObject.multiplyByFive(10);
 console.log(`result`, result);
-
+/**
+ * Fonction qui affiche dans la console le résultat du random
+ * @param {number} result 
+ * @returns void
+ */
 function success(result) {
   console.log(`Bravo ! ton score est : ${result}`);
 }
 function fail(result) {
   console.log(`Désolé, vous avez perdu ! ton petit score: ${result}`);
 }
-function game(s, f) {// on dit que s et f sont des callbacks
+function game(resolved, reject) {// on dit que s et f sont des callbacks
   const result = Math.random();
   if (result > 0.5) {
-    s(result);
-  } else f(result)
+    resolved(result);
+  } else reject(result)
 }
 game(success, fail);// ici les arguments sont de type function
