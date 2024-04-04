@@ -30,6 +30,8 @@ console.log(b.name);
  * price : propriété privée accessible de l'extérieur de la classe que par un getter ou un setter
  */
 class Product {
+  // propriété de classe
+  static brand = 'diginamic';
   #name;
   #price;
   constructor(name, price) {
@@ -38,7 +40,7 @@ class Product {
   }
   get name() {
     console.log(`dans le getter name`);
-    return this.#name;
+    return this.#name + " - " + Product.brand;
   }
   set name(new_name) {
     this.#name = new_name;
@@ -56,3 +58,5 @@ class Product {
 const p = new Product("bike", 1000);
 
 console.log(`prix de p : `, p.price);
+console.log(`nom de p : `, p.name);
+console.log(`brand : `, Product.brand);
