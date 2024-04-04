@@ -16,3 +16,4 @@ console.log(`aire de smallCircle ${smallCircle.area()}`);
 
 const bigCircle = new Circle(4, "grand cercle");
 console.log(`aire de bigCircle ${bigCircle.area()}`);
+console.log(`smallCircle`, smallCircle);
