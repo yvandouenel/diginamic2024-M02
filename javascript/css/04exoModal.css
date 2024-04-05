@@ -1,0 +1,23 @@
+.modal {
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid red;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000050;
+  > div {
+    border: 2px solid black;
+    width: 50%;
+    height: 50%;
+    padding: 30px;
+    background-color: white;
+  }
+}
+.modal.modal-show {
+  visibility: visible;
+}
