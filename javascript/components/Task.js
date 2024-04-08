@@ -14,7 +14,7 @@ export default class Task {
   manageEvents() {
     this.domElts.buttonDeleteElt.addEventListener("click", () => {
       console.log(`bouton delete cliqué`);
-      articleElt.remove();
+      this.domElts.articleElt.remove();
     })
     this.domElts.buttonValidateElt.addEventListener("click", () => {
       console.log(`bouton validate cliqué`);
@@ -30,6 +30,7 @@ export default class Task {
     const buttonDeleteElt = this.createMarkup("button", "Supprimer", articleElt);
     const buttonValidateElt = this.createMarkup("button", "Validate", articleElt);
     return ({
+      articleElt,
       h2Elt,
       buttonDeleteElt,
       buttonValidateElt
