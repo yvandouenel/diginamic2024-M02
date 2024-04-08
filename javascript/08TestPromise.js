@@ -1,7 +1,7 @@
-function loadToken() {
+async function loadToken() {
   return new Promise((resolve, reject) => {
     setTimeout(function () {
-      if (Math.random() > 0.5) {
+      if (Math.random() > 0.2) {
         resolve("SDddsiopdfqsdfoeeld;tedDD");// Envoi au then "Glop" qui sera récupéré dans le paramètre
       } else {
         reject("Erreur dans loadToken");
@@ -9,10 +9,10 @@ function loadToken() {
     }, 2000)
   })
 }
-function loadUser(token) {
+async function loadUser(token) {
   return new Promise((resolve, reject) => {
     setTimeout(function () {
-      if (Math.random() > 0.5) {
+      if (Math.random() > 0.2) {
         resolve({ name: "toto", id: 1 });// Envoi au then l'objet qui représente l'utilisateur
       } else {
         reject("Erreur dans loadUser");
@@ -20,7 +20,7 @@ function loadUser(token) {
     }, 2000)
   })
 }
-loadToken()
+/* loadToken()
   // si la promesse est tenue, on va dans le then
   .then(token => {
     console.log(`msg`, token);
@@ -33,5 +33,15 @@ loadToken()
   // Si la promesse n'est pas tenue, on passe dans le catch
   .catch(error => {
     console.error(error);
-  })
+  }) */
 console.log(`après l'appel de loadToken`);
+
+// Nouvelle syntaxe 
+try {
+  const token = await loadToken();
+  console.log(`token : `, token);
+  const user = await loadUser(token);
+  console.log(`user : `, user);
+} catch (error) {
+  console.error(`Erreur attrapée : `, error);
+}
