@@ -1,7 +1,9 @@
 "use strict";
 import Task from "./components/Task.js";
 
+// Référence à l'élément du DOM existant qui a pour id "root"
 const rootDom = document.getElementById("root");
+
 // Création de l'élément section qui comprend toutes les tâches
 const sectionListTasks = createMarkup("section", "", rootDom)
 
