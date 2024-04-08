@@ -35,8 +35,14 @@ export default class TodoList extends Dom {
       const taskName = this.domElts.input.value;
       if (taskName) {
         // Création d'une tâche
-        new Task(Math.floor(Math.random() * 1000), taskName, false, this.domElts.sectionListTasks);
+        const new_task = {
+          name: taskName,
+          done: false,
+        }
+        new Task(Math.floor(Math.random() * 1000), new_task.name, new_task.done, this.domElts.sectionListTasks);
         this.domElts.input.value = "";
+        // Ajout de la tâche sur le serveur via FechData.addTask(new_task)
+        FetchData.addTask(new_task);
       }
     })
   }
