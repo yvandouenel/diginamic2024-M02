@@ -12,6 +12,7 @@ export default class TodoList extends Dom {
 
     // Gestion des événements
     this.manageEvents();
+
   }
   manageEvents() {
     this.domElts.form.addEventListener("submit", (event) => {
@@ -23,7 +24,7 @@ export default class TodoList extends Dom {
       const taskName = this.domElts.input.value;
       if (taskName) {
         // Création d'une tâche
-        new Task(1, taskName, false, this.domElts.sectionListTasks);
+        new Task(Math.floor(Math.random() * 1000), taskName, false, this.domElts.sectionListTasks);
         this.domElts.input.value = "";
       }
     })
