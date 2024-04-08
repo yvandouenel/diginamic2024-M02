@@ -12,7 +12,7 @@ export default class TodoList extends Dom {
     const form = this.createMarkup("form", "", this.rootDom);
     const label = this.createMarkup("label", "Tâche : ", form, { "for": "task" });
     const input = this.createMarkup("input", "", form, { "id": "task", type: "text" });
-    const buttonSubmit = this.createMarkup("buton", "Ajouter la tâche", form, { "id": "task", type: "submit" });
+    const buttonSubmit = this.createMarkup("button", "Ajouter la tâche", form, { "id": "task", type: "submit" });
     // Création de l'élément section qui comprend toutes les tâches
     this.sectionListTasks = this.createMarkup("section", "", this.rootDom);
   }
