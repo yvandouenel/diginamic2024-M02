@@ -1,5 +1,6 @@
 import Dom from "../utils/Dom.js";
 import Task from "./Task.js";
+import FetchData from "../services/FetchData.js";
 
 export default class TodoList extends Dom {
   constructor() {
@@ -12,6 +13,16 @@ export default class TodoList extends Dom {
 
     // Gestion des événements
     this.manageEvents();
+
+
+    // Import des tâches
+    (async () => {
+      const tasks = await FetchData.loadTasks();
+      console.log(`taches dans le constructeur de TodoList`, tasks);
+      console.log(`this`, this);
+      this.renderTasks(tasks);
+    })();
+
 
   }
   manageEvents() {
@@ -43,5 +54,10 @@ export default class TodoList extends Dom {
       input,
       sectionListTasks
     }
+  }
+  renderTasks(tasks) {
+    tasks.forEach(task => {
+      new Task(task.id, task.name, task.done, this.domElts.sectionListTasks);
+    });
   }
 }

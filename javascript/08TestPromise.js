@@ -39,9 +39,23 @@ console.log(`après l'appel de loadToken`);
 // Nouvelle syntaxe 
 try {
   const token = await loadToken();
-  console.log(`token : `, token);
   const user = await loadUser(token);
+  console.log(`token : `, token);
   console.log(`user : `, user);
 } catch (error) {
   console.error(`Erreur attrapée : `, error);
 }
+
+fetch("https://restcountries.com/v3.1/name/deutschland")
+  .then((response) => {
+    console.log(`response status`, response.status);
+    if (response.status == 200) {
+      return response.json();
+    } else throw new Error("le réponse du serveur n'est pas du json");
+  })
+  .then(data => {
+    console.log(`data : `, data);
+  })
+  .catch(error => {
+    console.error("Erreur attrapée : " + error);
+  }) 
