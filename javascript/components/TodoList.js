@@ -62,7 +62,9 @@ export default class TodoList extends Dom {
     }
   }
   renderTasks(tasks) {
-    tasks.forEach(task => {
+    tasks.sort((a, b) => {
+      return a.done - b.done;
+    }).forEach(task => {
       new Task(task.id, task.name, task.done, this.domElts.sectionListTasks);
     });
   }
